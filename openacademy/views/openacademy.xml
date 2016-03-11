@@ -29,5 +29,26 @@ and open the template in the editor.
         <menuitem id="openacademy_menu" name="Open Academy"
                   parent="main_openacademy_menu"/>
         
+        <record model="ir.ui.view" id="couese_form_view">
+            <field name="name">course.form</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <form string="Course Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <notebook>
+                            <page name="description">
+                                <field name="description"/>
+                            </page>
+                            <page string="about">
+                                Esto es un ejemplo de notebook
+                            </page>
+                        </notebook>                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
     </data>
 </openerp>
