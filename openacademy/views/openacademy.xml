@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<openerp>
+    <data>
+        
+        <record model="ir.actions.act_window" id="course_list_action">
+            <field name="name">Courses</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">Tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    create the first course
+                </p>
+            </field>
+        </record>
+        
+        <menuitem id="main_openacademy_menu" name="Open Academy"/>
+        
+        <menuitem id="openacademy_menu" name="Open Academy"
+                  parent="main_openacademy_menu"/>
+        
+        <menuitem id="openacademy_menu" name="Open Academy"
+                  parent="main_openacademy_menu"/>
+        
+    </data>
+</openerp>
