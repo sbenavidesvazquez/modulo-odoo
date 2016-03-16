@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form string="Idea Form">
+            <header>
+                <button string="Confirm" type="object" name="action_confirm"
+                        states="draft" class="oe_highlight" />
+                <button string="Mark as done" type="object" name="action_done"
+                        states="confirmed" class="oe_highlight"/>
+                <button string="Reset to draft" type="object" name="action_draft"
+                        states="confirmed,done" />
+                <field name="state" widget="statusbar"/>
+            </header>
+            <sheet>
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only" string="Idea Name" />
+                    <h1><field name="name" /></h1>
+                </div>
+                <separator string="General" colspan="2" />
+                <group colspan="2" col="2">
+                    <field name="description" placeholder="Idea description..." />
+                </group>
+            </sheet>
+        </form>
+    </body>
+</html>
