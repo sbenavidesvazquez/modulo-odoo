@@ -17,6 +17,7 @@ and open the template in the editor.
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="responsible_id"/>
                         </group>
                         <notebook>
                             <page name="description">
@@ -41,6 +42,19 @@ and open the template in the editor.
                 </search>
             </field>
         </record>
+        
+        <!-- Sobreescribir automaticamente el generador de vistas de course -->
+        <record model="ir.ui.view" id="course_tree_view">
+            <field name="name">course.tree</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="name"/>
+                    <field name="responsible_id"/>
+                </tree>
+            </field>
+        </record>
+        
         <!-- Accion ventana -->
         <!--
             Las siguientes etiquetas estan definidas por "window action",
@@ -80,13 +94,31 @@ and open the template in the editor.
                 <form string="Session Form">
                     <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="start_date"/>
-                            <field name="duration"/>
-                            <field name="seats"/>
+                            <group string="General">
+                                <field name="course_id"/>
+                                <field name="name"/>
+                                <field name="instructor_id"/>
+                            </group>
+                            <group string="Schedule">
+                                <field name="start_date"/>
+                                <field name="duration"/>
+                                <field name="seats"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>
+            </field>
+        </record>
+        
+        <!-- listado de vistas de sesion -->
+        <record model="ir.ui.view" id="session_tree_view">
+            <field name="name">session.tree</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <tree string="Session Tree">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                </tree>
             </field>
         </record>
 
