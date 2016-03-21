@@ -26,6 +26,13 @@ and open the template in the editor.
                             <page string="about">
                                 Esto es un ejemplo de notebook
                             </page>
+                            <page string="Sessions">
+                                <field name="session_ids">
+                                    <tree string="Registered sessions">
+                                        <field name="name"/>
+                                        <field name="instructor_id"/>
+                                    </tree>
+                                </field>
                         </notebook>
                     </sheet>
                 </form>
@@ -105,6 +112,8 @@ and open the template in the editor.
                                 <field name="seats"/>
                             </group>
                         </group>
+                        <label for="attendee_ids"/>
+                        <field name="attendee_ids"/>
                     </sheet>
                 </form>
             </field>
