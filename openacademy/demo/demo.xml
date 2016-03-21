@@ -1,6 +1,6 @@
 <openerp>
     <data>
-        
+        <!--Estos son los cursos y descripciones que se le añadiran a la clase course -->
         <record id="course0" model="openacademy.course"> 
             <field name="name">Course 0</field> 
             <field name="description">Course 0 descripcion se puede escribir multiples lineas</field> 

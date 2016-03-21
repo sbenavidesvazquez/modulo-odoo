@@ -8,27 +8,7 @@ and open the template in the editor.
 
 <openerp>
     <data>
-        
-        <record model="ir.actions.act_window" id="course_list_action">
-            <field name="name">Courses</field>
-            <field name="res_model">openacademy.course</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">Tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    create the first course
-                </p>
-            </field>
-        </record>
-        
-        <menuitem id="main_openacademy_menu" name="Open Academy"/>
-        
-        <menuitem id="openacademy_menu" name="Open Academy"
-                  parent="main_openacademy_menu"/>
-        
-        <menuitem id="openacademy_menu" name="Open Academy"
-                  parent="main_openacademy_menu"/>
-        
+        <!-- crear vista propia del objeto course -->
         <record model="ir.ui.view" id="couese_form_view">
             <field name="name">course.form</field>
             <field name="model">openacademy.course</field>
@@ -45,12 +25,12 @@ and open the template in the editor.
                             <page string="about">
                                 Esto es un ejemplo de notebook
                             </page>
-                        </notebook>                        
+                        </notebook>
                     </sheet>
                 </form>
             </field>
         </record>
-        
+        <!-- buscador de course -->
         <record  model="ir.ui.view" id="course_search_view">
             <field name="name">course.search</field>
             <field name="model">openacademy.course</field>
@@ -61,7 +41,38 @@ and open the template in the editor.
                 </search>
             </field>
         </record>
+        <!-- Accion ventana -->
+        <!--
+            Las siguientes etiquetas estan definidas por "window action",
+            accion de abrir una o varias vistas
+        -->
+        <record model="ir.actions.act_window" id="course_list_action">
+            <field name="name">Courses</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">Tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    create the first course
+                </p>
+            </field>
+        </record>
+        <!-- nivel de menu: sin parent -->
+        <menuitem id="main_openacademy_menu" name="Open Academy"/>
+         <!-- primer nivel a la izquierda del menu es necesario
+             antes usar accion= atributo -->
+        <menuitem id="openacademy_menu" name="Open Academy"
+                  parent="main_openacademy_menu"/>
+        <!-- El siguiente menuitem suele aparecer *despues*
+             del parent openacademy_menu y *despues* la
+             accion course_list_action -->
+        <menuitem id="openacademy_menu" name="Open Academy"
+                  parent="main_openacademy_menu"/>
+         <!-- localozacion id:
+             action="openacademy.course_list_action"
+             no se requiere cuando es el mismo modulo -->
         
+        <!-- sesion desde vista -->
         <record model="ir.ui.view" id="session_form_view">
             <field name="name">session.form</field>
             <field name="model">openacademy.session</field>
@@ -88,6 +99,7 @@ and open the template in the editor.
 
         <menuitem id="session_menu" name="Sessions"
                   parent="openacademy_menu"
-                  action="session_list_action"/>
+                  action="session_list_action"/>     
+
     </data>
 </openerp>
